@@ -19,13 +19,10 @@ return new class extends Migration
             $table->integer('number_of_beds')->default(0);
             $table->enum('status', ['occupied', 'vacant', 'under_maintenance']);
             $table->longText('description')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
-        });
-
-        Schema::create('rooms', function (Blueprint $table) {
             $table->foreign('dormitory_id')->references('id')->on('dormitories')->onDelete('cascade');
             $table->foreign('room_type_id')->references('id')->on('room_types')->onDelete('cascade');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
