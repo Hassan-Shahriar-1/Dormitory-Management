@@ -20,4 +20,9 @@ class RoomType extends Model
         'updated_at',
         'deleted_at'
     ];
+
+    public function rooms()
+    {
+        return $this->hasMany(Room::class, 'id', 'room_type_id');
+    }
 }

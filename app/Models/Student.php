@@ -21,4 +21,9 @@ class Student extends Model
         'updated_at',
         'deleted_at'
     ];
+
+    public function studentDormatory()
+    {
+        return $this->hasOne(StudentDormitory::class, 'id', 'student_id');
+    }
 }

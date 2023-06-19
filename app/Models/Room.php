@@ -17,11 +17,21 @@ class Room extends Model
         'room_number',
         'number_of_beds',
         'dormitory_id',
-        'number_of_beds',
         'description',
         'room_type_id',
+        'status',
         'created_at',
         'updated_at',
         'deleted_at'
     ];
+
+    public function dormitory()
+    {
+        return $this->belongsTo(Dormitory::class, 'dormitory_id');
+    }
+
+    public function roomType()
+    {
+        return $this->belongsTo(RoomType::class, 'room_type_id');
+    }
 }

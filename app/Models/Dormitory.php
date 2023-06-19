@@ -21,4 +21,14 @@ class Dormitory extends Model
         'updated_at',
         'deleted_at'
     ];
+
+    public function studentDormitory()
+    {
+        return $this->hasMany(studentDormitory::class, 'id', 'dormitory_id');
+    }
+
+    public function rooms()
+    {
+        return $this->hasMany(Room::class, 'id', 'dormitory_id');
+    }
 }
