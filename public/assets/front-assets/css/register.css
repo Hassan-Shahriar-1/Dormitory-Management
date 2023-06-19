@@ -1,0 +1,13 @@
+.btn-success{
+    width: 100%;
+    margin: 20px auto;
+}
+
+
+.register-body{
+    position: relative;
+}
+
+#signup-confirmation{
+    display: none;
+}

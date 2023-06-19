@@ -1,0 +1,113 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Roboto', sans-serif;
+}
+.account-body img{
+    width: 200px;
+    margin: auto auto 20px auto;
+}
+
+body.acccount-bg{
+    background-color: #fff !important;
+}
+
+.fw-300{font-weight: 300;}
+.fw-400{font-weight: 400;}
+.fw-500{font-weight: 500;}
+.fw-600{font-weight: 600;}
+.mt-10{margin-top: 10px}
+ 
+.mt-20{margin-top: 20px}
+.mt-30{margin-top: 30px}
+.mt-40{margin-top: 40px}
+.mb-5{margin-bottom: 5px !important}
+.mb-10{margin-bottom: 10px}
+.mb-20{margin-bottom: 20px}
+.mb-30{margin-bottom: 30px}
+.mb-40{margin-bottom: 40px}
+
+.account-bg .form-group label{
+    font-weight: 400 !important;
+    color: #7d7d7d;
+}
+
+.account-form .form-control{
+    margin-bottom: 5px !important
+}
+
+.has-error{
+    color: red;
+    display: inline-block;
+    display: none;
+}
+
+.field-required{border: 1px solid red}
+.field-required:focus{border: 1px solid red}
+
+.account-wrapper {
+    max-width: 800px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .global-warning   .modal-dialog {
+    min-width: 300px;
+    margin: 10px auto;
+}
+
+
+.navbar.bg-white {
+    background-color: #ffffff !important;
+    border: 0;
+    border-bottom: 1px solid #c9c9c9;
+    min-height: 59px;
+    box-shadow: none;
+}
+.fixed-top {
+    max-width: 800px;
+    margin: auto;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+ 
+.navbar .navbar-brand {
+    width: 260px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    color: #333;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus,
+.navbar .navbar-brand:active
+ {
+    background-color: transparent;
+    color: #333;
+}
+
+ 
+.auth-view .account-wrapper{
+    min-height: calc(100vh - 60px);
+}
+.auth-view {
+   padding-top: 60px
+}
+.auth-view .account-body {
+   margin: 0 auto auto auto;
+   width: 100%;
+}
+
+.mt-50{margin-top: 50px;}
+.mt-40{margin-top: 40px;}
+.mt-30{margin-top: 30px;}
+.mt-20{margin-top: 20px;}

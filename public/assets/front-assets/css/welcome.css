@@ -1,0 +1,32 @@
+.welcome-screen {
+    min-height: calc(100vh - 132px);
+    display: flex;
+    vertical-align: middle;
+}
+
+.welcome-screen .btn{
+     padding: 12px 30px;
+}
+.welcome-body{
+    margin: 50px auto;
+    text-align: center;
+    width: 100%;
+}
+
+.welcome-body img{
+    width: 200px;
+    margin: 20px auto;
+}
+
+
+.btn-success{
+    display: block;
+    margin: 20px auto;
+}
+.btn-primary{
+    display: block;
+    margin: 20px auto;
+}
+
+
+ 

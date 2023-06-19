@@ -1,0 +1,32 @@
+.intro-body{
+    margin-bottom: 10px
+}
+
+.public-view main{
+    min-height: calc(100vh - 97px);
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+} 
+.public-view .main-content{
+    width: 100%
+} 
+
+video{
+    border: 0 !important;
+    width: 100%;
+}
+
+.skip{
+    box-sizing: border-box;
+    padding: 0 30px 30px;
+}
+.skip .btn{
+    min-width: 150px;
+}
+
+.intro-body img{
+    width: 100%;
+    margin: auto;
+}

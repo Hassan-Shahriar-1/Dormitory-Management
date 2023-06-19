@@ -1,0 +1,76 @@
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #ececec;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    padding-top: 59px;
+}
+
+
+ 
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Roboto', sans-serif;
+}
+img{
+    width: 100%;
+}
+
+body main{
+    background-color: #fff;
+}
+
+body{
+    max-width: 800px;
+    margin: auto;
+}
+
+.navbar.bg-white {
+    background-color: #ffffff  !important;
+    border-bottom: 1px solid #c9c9c9;
+    min-height: 59px;
+}
+.navbar-brand strong{
+    color: #333
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #575f71;
+}
+.h5, h5 {
+    font-size: 1.1rem;
+}
+
+.fixed-top{
+    max-width: 800px; 
+    margin: auto;
+}
+body main .main-content{
+    padding: 20px 15px 15px 15px;
+    box-sizing: border-box;
+}
+.fw-300{font-weight: 300;}
+.fw-400{font-weight: 400;}
+.fw-500{font-weight: 500;}
+.fw-600{font-weight: 600;}
+.mt-10{margin-top: 10px}
+.mt-20{margin-top: 20px}
+.mt-30{margin-top: 30px}
+.mt-40{margin-top: 40px}
+.mb-10{margin-bottom: 10px}
+.mb-20{margin-bottom: 20px}
+.mb-30{margin-bottom: 30px}
+.mb-40{margin-bottom: 40px}
+.f-13{font-size: 13px;}
+.f-14{font-size: 14px;}
+.f-15{font-size: 15px;}
+.f-16{font-size: 16px;}
+.f-17{font-size: 17px;}
+.f-18{font-size: 18px;}
+.f-19{font-size: 19px;}
+.w-250{width: 250px;}
+.mx-auto{margin-right: auto; margin-left: auto;}
+.my-auto{margin-top: auto; margin-bottom: auto;}
+.w-85{width: 85% !important}
+
+
