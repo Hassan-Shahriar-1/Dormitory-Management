@@ -17,6 +17,7 @@ return new class extends Migration
             $table->uuid('room_type_id');
             $table->string('room_number');
             $table->integer('number_of_beds')->default(0);
+            $table->enum('room_status', ['occupied', 'vacant', 'under_maintenance']);
             $table->longText('description')->nullable();
             $table->timestamps();
             $table->softDeletes();

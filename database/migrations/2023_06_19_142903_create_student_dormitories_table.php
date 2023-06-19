@@ -17,6 +17,7 @@ return new class extends Migration
             $table->uuid('room_id');
             $table->uuid('dormitory_id');
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('student_dormitories', function (Blueprint $table) {
