@@ -13,11 +13,18 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->uuid('dormitory_id');
+            $table->uuid('room_type_id');
             $table->string('room_number');
             $table->integer('number_of_beds')->default(0);
             $table->longText('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::create('rooms', function (Blueprint $table) {
+            $table->foreign('dormitory_id')->references('id')->on('dormitories')->onDelete('cascade');
+            $table->foreign('room_type_id')->references('id')->on('room_types')->onDelete('cascade');
         });
     }
 

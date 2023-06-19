@@ -14,9 +14,14 @@ return new class extends Migration
         Schema::create('student_dormitories', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('student_id');
-            $table->uuid('asigned_room');
+            $table->uuid('room_id');
             $table->uuid('dormitory_id');
             $table->timestamps();
+        });
+
+        Schema::create('student_dormitories', function (Blueprint $table) {
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
         });
     }
 
