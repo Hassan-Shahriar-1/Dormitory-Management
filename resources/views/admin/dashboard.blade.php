@@ -8,37 +8,86 @@
 @section('pageTitle', 'Home')
 @section('content')
     <div>
-
-
-
-
-
-            <div class="col-md-12 shortcut_icon_block">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <a href="{{url('/')}}?show_modal=create" class="btn bg-dark-blue">Add New Product</a>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <a href="{{url('/')}}?show_modal=create" class="btn bg-orange">Add New School</a>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <a href="{{url('/')}}?show_modal=create" class="btn bg-cyan">Add New Sponsor</a>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <a href="{{url('/')}}?show_modal=create" class="btn bg-green">Start New Campaign</a>
-                    </div>
+        <div class="col-md-12 shortcut_icon_block">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                        <a href="{{url('/')}}?show_modal=create" class="btn bg-dark-blue">Add New Dormitory</a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="{{url('/')}}?show_modal=create" class="btn bg-orange">Add New Room Types</a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="{{url('/')}}?show_modal=create" class="btn bg-cyan">Add New Rooms</a>
+                </div>
+                <div class="col-md-3 col-sm-6 ">
+                    <a href="{{url('/')}}?show_modal=create" class="btn bg-green ">Add New Student Dormitory</a>
                 </div>
             </div>
-
-
-           
+        </div>
             
             <div class="col-md-4 col-sm-6">
                 <div class="icon-stat">
                     <div class="row">
                         <div class="col-xs-8 text-left">
-                            <span class="icon-stat-label">Cash Donations</span> <!-- /.icon-stat-label -->
-                            <span class="icon-stat-value">${{number_format((float)100, 2, '.', '')}}</span> <!-- /.icon-stat-value -->
+                            <span class="icon-stat-label">Total Dormentory Donations</span> <!-- /.icon-stat-label -->
+                            <span class="icon-stat-value">{{100}}</span> <!-- /.icon-stat-value -->
+                        </div><!-- /.col-xs-8 -->
+
+                        <div class="col-xs-4 text-center">
+                            <i class="fas fa-hand-holding-usd icon-stat-visual bg-success"></i> <!-- /.icon-stat-visual -->
+                        </div><!-- /.col-xs-4 -->
+                    </div><!-- /.row -->
+
+                    <div class="icon-stat-footer">
+                        <i class="fa fa-clock-o"></i> Updated Now
+                    </div>
+                </div> <!-- /.icon-stat -->
+            </div> <!-- /.col-md-3 -->
+
+                        <div class="col-md-4 col-sm-6">
+                <div class="icon-stat">
+                    <div class="row">
+                        <div class="col-xs-8 text-left">
+                            <span class="icon-stat-label">Total Rooms</span> <!-- /.icon-stat-label -->
+                            <span class="icon-stat-value">{{100}}</span> <!-- /.icon-stat-value -->
+                        </div><!-- /.col-xs-8 -->
+
+                        <div class="col-xs-4 text-center">
+                            <i class="fas fa-hand-holding-usd icon-stat-visual bg-success"></i> <!-- /.icon-stat-visual -->
+                        </div><!-- /.col-xs-4 -->
+                    </div><!-- /.row -->
+
+                    <div class="icon-stat-footer">
+                        <i class="fa fa-clock-o"></i> Updated Now
+                    </div>
+                </div> <!-- /.icon-stat -->
+            </div> <!-- /.col-md-3 -->
+
+                        <div class="col-md-4 col-sm-6">
+                <div class="icon-stat">
+                    <div class="row">
+                        <div class="col-xs-8 text-left">
+                            <span class="icon-stat-label">Total Availables Rooms</span> <!-- /.icon-stat-label -->
+                            <span class="icon-stat-value">{{100}}</span> <!-- /.icon-stat-value -->
+                        </div><!-- /.col-xs-8 -->
+
+                        <div class="col-xs-4 text-center">
+                            <i class="fas fa-hand-holding-usd icon-stat-visual bg-success"></i> <!-- /.icon-stat-visual -->
+                        </div><!-- /.col-xs-4 -->
+                    </div><!-- /.row -->
+
+                    <div class="icon-stat-footer">
+                        <i class="fa fa-clock-o"></i> Updated Now
+                    </div>
+                </div> <!-- /.icon-stat -->
+            </div> <!-- /.col-md-3 -->
+
+                        <div class="col-md-4 col-sm-6">
+                <div class="icon-stat">
+                    <div class="row">
+                        <div class="col-xs-8 text-left">
+                            <span class="icon-stat-label">Total Student Dormintory </span> <!-- /.icon-stat-label -->
+                            <span class="icon-stat-value">{{100}}</span> <!-- /.icon-stat-value -->
                         </div><!-- /.col-xs-8 -->
 
                         <div class="col-xs-4 text-center">

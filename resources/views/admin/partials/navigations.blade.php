@@ -4,7 +4,7 @@
         <div class="navbar-header">
             <div class="navbar-brand">
                 <a href="{{url('/admin')}}" class="logo">
-                    Dormitory Management
+                    Dormitory
                 </a>
             </div>
 
@@ -57,16 +57,60 @@
                 <li class="dropdown has_sub {{request()->is('/admin')?'open active':''}}">
                     <a href="javascript:void(0)" class="">
                         <i class="fa fa-edit"></i>
-                        Settings
+                        Dormintory
                         <span class="">
                             <i class="fa fa-angle-right pull-right"></i>
                         </span>
                     </a>
 
                     <ul class="list-unstyled" style="">
-                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">Permissions </a> </li>
-                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">Roles </a> </li>
-                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">Error Logs </a> </li>
+                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">add </a> </li>
+                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">list </a> </li>
+                    </ul>
+                </li>
+
+                 <li class="dropdown has_sub {{request()->is('/admin')?'open active':''}}">
+                    <a href="javascript:void(0)" class="">
+                        <i class="fa fa-edit"></i>
+                        Rooms Type
+                        <span class="">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+
+                    <ul class="list-unstyled" style="">
+                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">add </a> </li>
+                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">list </a> </li>
+                    </ul>
+                </li>
+
+                 <li class="dropdown has_sub {{request()->is('/admin')?'open active':''}}">
+                    <a href="javascript:void(0)" class="">
+                        <i class="fa fa-edit"></i>
+                        Rooms
+                        <span class="">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+
+                    <ul class="list-unstyled" style="">
+                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">add </a> </li>
+                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">list </a> </li>
+                    </ul>
+                </li>
+
+                 <li class="dropdown has_sub {{request()->is('/admin')?'open active':''}}">
+                    <a href="javascript:void(0)" class="">
+                        <i class="fa fa-edit"></i>
+                        Student Dormintory
+                        <span class="">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
+                    </a>
+
+                    <ul class="list-unstyled" style="">
+                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">add </a> </li>
+                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">list </a> </li>
                     </ul>
                 </li>
         
