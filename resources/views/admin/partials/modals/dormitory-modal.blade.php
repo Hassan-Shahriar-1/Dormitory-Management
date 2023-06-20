@@ -13,25 +13,35 @@
                 <div class="modal-body">
                     <div class="pl-10 pr-10">
                         <div class="row custom-row">
+                            <div class="col-md-12">
+                                <div class="form-group col-md-6">
+                                    <label>Type</label>
+                                    <select name="type" class="form-group">
+                                        <option value="boys">Boys</option>
+                                        <option value="girls">Girls</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        Distributor Active?
+                                        <div class="material-switch pull-right">
+                                            <input id="is_active" value="1" name="status" type="checkbox"/>
+                                            <label for="is_active" class="label-success"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
                             <div class="col-md-6">
                                <div class="form-group">
                                    <label>Name <span style="color:red;">*</span></label>
                                    <input type="text" name="name" id="dormitory_name" class="form-control">
                                </div>
                             </div>
-                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Type</label>
-                                    <select name="type" class="form-control">
-                                        <option value="boys">Boys</option>
-                                        <option value="girls">Girls</option>
-                                    </select>
-                                </div>
-                             </div>
+                             
 
                              <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Adress <span style="color:red;">*</span></label>
+                                    <label>Adress </label>
                                     <input type="text" name="address" id="address" class="form-control">
                                 </div>
                              </div>

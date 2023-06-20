@@ -17,6 +17,7 @@ class StudentDormitory extends Model
         'student_id',
         'room_id',
         'dormitory_id',
+        'status',
         'created_at',
         'updated_at',
         'deleted_at'

@@ -25,10 +25,15 @@ class DormitoryController extends Controller
     /**
      * getting dormitory list for jax call
      */
-    public function dormitoryList()
+    public function dormitoryList(Request $request, Dormitory $dormitory)
     {
-        $dormitoryList = Dormitory::all();
-        return $dormitoryList;
+        $dormitoryList = $dormitory->getDormitoryData($request);
+        $data = array();
+
+        if (!empty($dormitoryList['items'])) {
+            $data = $dormitory->getDatatableData($dormitoryList['items']);
+        }
+        return ResponseHelper::getResponseForDatatable($request->input('draw'), $dormitoryList['totalData'], $dormitoryList['totalFiltered'], $data);
     }
 
     /**

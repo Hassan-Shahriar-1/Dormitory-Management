@@ -28,6 +28,8 @@
   <link rel="stylesheet" href="{{asset('assets/css/mvpready-admin.css')}}">
   <link rel="stylesheet" href="{{asset('assets/css/custom-style.css')}}">
   <link rel="stylesheet" href="{{asset('assets/library/fontawesome_5/css/all.min.css')}}">
+  
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 
 
   @yield('css')
@@ -64,6 +66,7 @@
 <!-- Core JS -->
 <!-- Core JS -->
 <script src="{{asset('assets/library/jquery/dist/jquery.js')}}"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="{{asset('assets/library/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/library/slimscroll/jquery.slimscroll.js')}}"></script>
 

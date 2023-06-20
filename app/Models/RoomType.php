@@ -16,6 +16,7 @@ class RoomType extends Model
     protected $fillable = [
         'name',
         'description',
+        'status',
         'created_at',
         'updated_at',
         'deleted_at'

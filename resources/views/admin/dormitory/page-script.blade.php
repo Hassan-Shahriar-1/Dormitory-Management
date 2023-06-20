@@ -205,7 +205,7 @@
 
 
 
-    // validate signup form on keyup and submit
+    // validate form on keyup and submit
     el_form.validate({
         rules: {
             name: {
@@ -370,79 +370,30 @@
     var table = $('.dormitory-table').DataTable({
         processing: true,
         serverSide: true,
-        order: [[2,'desc']],
+        order: [[1,'asc']],
         lengthMenu: [[5, 10, 20, 50, 75, 100, 200, 500, 1000, -1], [5, 10, 20, 50, 75, 100, 200, 500, 1000, 'All']],
         pageLength: 20,
         ajax: {
             url:"{{route('dormitory.list') }}",
             type: "GET",
-            "data": function (data) {
-                data.is_closed = '';
-                data.is_donation = '';
-            },
             cache: true,
-            complete: function (data) {
-                const logsResponse = data['responseJSON'];
-                console.log(logsResponse.totalRow);
-                const {
-                    total_student_count,
-                    total_sale_amount,
-                    total_total_roundup,
-                    average_credit_card_rate,
-                    average_transaction_fee,
-                    total_total_donation
-
-                } = logsResponse?.totalRow;
-
-                $(".total_student_count").html(total_student_count);
-                $(".total_sale_amount").html(total_sale_amount);
-                $(".total_total_roundup").html(total_total_roundup);
-                $(".average_credit_card_rate").html(average_credit_card_rate);
-                $(".average_transaction_fee").html(average_transaction_fee);
-                $(".total_total_donation").html(total_total_donation);
-            },
-
         },
         globalSearch: true,
 
         columns: [
-
-            {data: 'action', name: 'action', orderable: false, searchable: false},
-            {data: 'name', name: 'name',orderable:true, searchable:true},
-           
-            {data: 'distributor_name', name:'distributor_name',searchable:false,orderable:true},
-            
-            {data: 'school_name', name: 'school_name',orderable:true},
-           
-            {data: 'access_code', name: 'access_code'},
-            {data: 'sponsor_name', name: 'sponsor_name',orderable:false},
-            {data: 'student_count', name: 'student_count'},
-            {data: 'start_date', name: 'start_date'},
-            {data: 'end_date', name: 'end_date'},
-            {data: 'sale_type', name: 'sale_type'},
-            {data: 'total_sale', name: 'total_sale'},
-            {data: 'total_donation', name: 'total_donation'},
-            {data: 'total_roundup', name: 'total_roundup'}, 
-
-            
-                {data: 'credit_card_rate', name: 'credit_card_rate'},
-                {data: 'transaction_fee', name: 'transaction_fee'}
-           
-
+            {data: 'key', name: 'key', orderable: false, searchable: true}, 
+            {data: 'name', name: 'name', orderable: true, searchable: true},           
+            {data: 'address', name:'address',searchable:true,orderable:true},
+            {data: 'type', name: 'type',orderable:true, searchable:true},
+            {data: 'status', name: 'status',orderable:true},
+            {data: 'created_at', name: 'created_at',orderable:false},
+            {data: 'action', name: 'action'},        
         ],
         columnDefs: [{
             target:0,
             orderable:false
         }],
         dom: 'lBfrtip',
-            "initComplete": function(settings, json) {
-                var isEmpty = table.rows().count() === 0;
-                if(isEmpty){
-                    $('tfoot').hide();
-                }else{
-                    $('tfoot').show();
-                }
-            }
     });
 
 

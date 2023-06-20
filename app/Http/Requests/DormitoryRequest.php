@@ -27,7 +27,8 @@ class DormitoryRequest extends FormRequest
             'id' => 'sometimes|nullable|exists:dormitories,id',
             'name' => 'required|string|max:60',
             'type' => 'required|string|in:boys,girls',
-            'address' => 'nullable|string|max:255'
+            'address' => 'nullable|string|max:255',
+            'status' => 'nullable|integer|in:0,1'
         ];
     }
 }

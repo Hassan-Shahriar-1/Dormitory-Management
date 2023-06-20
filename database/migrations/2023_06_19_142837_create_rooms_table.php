@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('room_type_id');
             $table->string('room_number');
             $table->integer('number_of_beds')->default(0);
-            $table->enum('status', ['occupied', 'vacant', 'under_maintenance']);
+            $table->tinyInteger('status')->default(1);
             $table->longText('description')->nullable();
             $table->foreign('dormitory_id')->references('id')->on('dormitories')->onDelete('cascade');
             $table->foreign('room_type_id')->references('id')->on('room_types')->onDelete('cascade');

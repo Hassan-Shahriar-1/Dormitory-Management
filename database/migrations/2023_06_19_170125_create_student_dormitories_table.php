@@ -16,6 +16,7 @@ return new class extends Migration
             $table->uuid('student_id');
             $table->uuid('room_id');
             $table->uuid('dormitory_id');
+            $table->tinyInteger('status')->default(1);
             $table->foreign('dormitory_id')->references('id')->on('dormitories')->onDelete('cascade');
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');

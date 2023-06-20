@@ -26,16 +26,13 @@
                 <div class="row">
                     <div class="col-xs-6">
                         <h4 class="portlet-title">
-                            <u> Closed  Campaigns </u>
+                            <u> Dormitory List</u>
                         </h4>
                     </div>
-                    @php
-                        $user = auth()->user();
-                    @endphp
-                   
-                        <div class="col-xs-6 text-right">
-                            <button class="btn btn-success btn-sm" id="AddNewBtn" type="button"><i class="fa fa-plus"></i> Add New</button>
-                        </div>
+
+                    <div class="col-xs-6 text-right">
+                        <button class="btn btn-success btn-sm" id="AddNewBtn" type="button"><i class="fa fa-plus"></i> Add New</button>
+                    </div>
                     
                 </div>
             </div>
@@ -51,43 +48,16 @@
                 >
                     <thead>
                         <tr>
-                            <th data-sortable="false" class="w-60p text-center">Action</th>
-                            <th data-sortable="false" class="mw-180p">Campaign</th>
-                            <th data-sortable="false" class="">Distributor Name</th>
-                            <th data-sortable="false" class="">School Name</th>
-                            <th data-sortable="true" class="w-120p" style="color: red">Campaign Code</th>
-                            <th data-sortable="true" class="w-120p">Sponsor Name</th> 
-                            <th data-sortable="true" class="w-120p">Student Count</th>
-                            <th data-sortable="true" class="w-130p">Start Date</th>
-                            <th data-sortable="true" class="w-130p">End Date</th>
-                            <th data-sortable="true" class="w-130p">Type of Sale</th>
-                            <th data-sortable="true" class="w-160p">Total Product Sales</th>
-                            <th data-sortable="true" class="w-150p">Total Donations</th>
-                            <th data-sortable="true" class="w-150p">Total Round-ups</th>
-                            <th data-sortable="true" class="w-150p">Card Rate</th>
-                            <th data-sortable="true" class="w-150p">Transaction Fee</th>
+                            <th data-sortable="false" class="w-60p text-center">SL</th>
+                            <th data-sortable="false" class="w-60p text-center">Name</th>
+                            <th data-sortable="false" class="mw-180p">Address</th>
+                            <th data-sortable="false" class="">Type</th>
+                            <th data-sortable="false" class="">Status</th>
+                            <th data-sortable="false" class="">created_at</th>
+                            <th data-sortable="false" class="">Action</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Totals</th>
-                            <th></th>
 
-                            <th></th>
-                            <th></th>
-                          <th></th> 
-                            <th class="total_student_count"></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th class="total_sale_amount"></th>
-                            <th class="total_total_donation"></th>
-                            <th class="total_total_roundup"></th>
-                            <th class="average_credit_card_rate"></th>
-                            <th class="average_transaction_fee"></th>
-                       
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
