@@ -6,7 +6,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                  <h5 class="modal-title"><span id="form_title_text">Add</span> Customer</h5>
+                  <h5 class="modal-title"><span id="form_title_text">Add</span> Dormitory</h5>
                 </div>
 
              

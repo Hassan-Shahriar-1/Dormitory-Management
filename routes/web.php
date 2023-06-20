@@ -3,6 +3,8 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DormitoryController;
+use App\Models\Dormitory;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +17,15 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-Route::get('/', [AdminController::class, 'dashboard']);
+Route::get('/', [AdminController::class, 'dashboard'])->name('home');
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 
 // Logout Route
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/dormitory', [DormitoryController::class, 'index']);
+    Route::get('dormitory/list', [DormitoryController::class, 'dormitoryList'])->name('dormitory.list');
+});
