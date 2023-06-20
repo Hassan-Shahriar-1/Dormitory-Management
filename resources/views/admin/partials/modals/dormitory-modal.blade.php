@@ -15,34 +15,24 @@
                         <div class="row custom-row">
                             <div class="col-md-6">
                                <div class="form-group">
-                                   <label>First Name <span style="color:red;">*</span></label>
-                                   <input type="text" name="customer_first_name" id="customer_first_name" class="form-control">
+                                   <label>Name <span style="color:red;">*</span></label>
+                                   <input type="text" name="name" id="dormitory_name" class="form-control">
                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Last Name</label>
-                                    <input type="text" name="customer_last_name" id="customer_last_name" class="form-control">
-                                </div>
-                             </div>
-
                              <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Student</label>
-                                    <input type="text" name="customer_student" id="customer_student" class="form-control">
+                                    <label>Type</label>
+                                    <select name="type" class="form-control">
+                                        <option value="boys">Boys</option>
+                                        <option value="girls">Girls</option>
+                                    </select>
                                 </div>
                              </div>
 
                              <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Email Address <span style="color:red;">*</span></label>
-                                    <input type="text" name="customer_email" id="customer_email" class="form-control">
-                                </div>
-                             </div>
-                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Phone</label>
-                                    <input type="text" name="customer_phone" id="customer_phone" class="form-control phone-masking" placeholder="(xxx) xxx-xxxx">
+                                    <label>Adress <span style="color:red;">*</span></label>
+                                    <input type="text" name="address" id="address" class="form-control">
                                 </div>
                              </div>
                         </div>
@@ -51,7 +41,7 @@
         
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="savecustomerBtn"><span id="btn_text">Save</span></button>
+                  <button type="button" class="btn btn-primary" id="savedormitoryBtn"><span id="btn_text">Save</span></button>
                 </div> 
               </div>
         </form>

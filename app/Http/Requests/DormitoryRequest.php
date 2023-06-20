@@ -2,16 +2,18 @@
 
 namespace App\Http\Requests;
 
+use App\Traits\SanitizeInput;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DormitoryRequest extends FormRequest
 {
+    use SanitizeInput;
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +24,10 @@ class DormitoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'sometimes|nullable|exists:dormitories,id',
+            'name' => 'required|string|max:60',
+            'type' => 'required|string|in:boys,girls',
+            'address' => 'nullable|string|max:255'
         ];
     }
 }

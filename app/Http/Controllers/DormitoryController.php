@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ResponseHelper;
+use App\Http\Requests\DormitoryRequest;
 use App\Models\Dormitory;
 use Illuminate\Http\Request;
 
@@ -27,5 +29,15 @@ class DormitoryController extends Controller
     {
         $dormitoryList = Dormitory::all();
         return $dormitoryList;
+    }
+
+    /**
+     * dormitory store functionality
+     * @param DormitoryRequest $request
+     */
+    public function store(DormitoryRequest $request)
+    {
+        $data = Dormitory::create($request->all());
+        return ResponseHelper::successResponse(trans('messages.create_message'), $data);
     }
 }

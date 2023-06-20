@@ -3,7 +3,7 @@
     @if($showCreateModal)
         $(document).ready(function(){
             $('#submitCampaignBtn').removeClass('campaignEditButtonConfirm').addClass('submitCampaignBtn');
-            campaignCreateActions();
+
             $("#dormitory-modal").modal('show');
         });
     @endif
@@ -11,64 +11,52 @@
     //need condition here
         $(document).ready(function(){
             $('#submitCampaignBtn').removeClass('campaignEditButtonConfirm').addClass('submitCampaignBtn');
-            campaignCreateActions();
             $("#campaign-modal").modal('show');
         });
 
 
 
-    function campaignCreateActions(){
-        $(".existing_sponsor_section").show();
-        $("#sponsor_type").prop("selectedIndex", 0);
-        setTimeout(() => {
-            var type = $("#sponsor_type").val();
-            showSponsorFields(type)
-        }, 200);
-    }
-
-
-    function showSponsorFields(type){
-        if(type === 'new'){
-            $(".sponsor_type_existing").hide();
-            $("#sponsor_user_id").val('');
-            $(".sponsor_type_new").show();
-        }else if(type === 'existing'){
-            $("#sponsor_name, #sponsor_phone, #sponsor_email, #sponsor_user_name, #sponsor_password").val('');
-            $(".sponsor_type_new").hide();
-            $("#sponsor_user_id").attr('disabled', false);
-            $(".sponsor_type_existing").show();
-        }
-    }
-
-    $(document).on('change', "#sponsor_type", function(){
-        var type = $(this).val();
-       showSponsorFields(type)
-    })
-
-    $('.selectPicker').select2({
-        allowClear: true,
-        placeholder: "Select your product..."
-    });
-
-
-    var el_form = $("#campaign-form");
+    //form part
+    var el_form = $("#dormitory-form");
     var el_action = $("#action");
-    var el_form_modal = $("#campaign-modal");
+    var el_form_modal = $("#dormitory-modal");
     var el_modal_title = $("#form_title_text");
-    var el_modal_wizard_title = $('#campaign-modal .wizard_title');
+    var el_modal_wizard_title = $('#dormitory-modal .wizard_title');
     var el_modal_btn = $("#btn_text");
+
+    $(document).on("click", "#savedormitoryBtn", function(){
+        var formData = new FormData($('#dormitory-form')[0]);
+        formData.append('_token', '{{ csrf_token() }}');
+        $.ajax({
+            data: formData,
+            url: "{{ route('dormitory.store') }}",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                el_form_modal.modal('hide');
+                formEmpty();
+
+                table.draw();
+            },
+
+            error: function (data) {
+                showErrorMessage(data.responseJSON.message)
+            }
+        });
+        el_form_modal.modal('hide');
+        formEmpty();
+        
+    })
 
     // trigger campaign modal
     $(document).on("click", "#AddNewBtn", function(){
-        //removeErrorClass();
-        campaignCreateActions();
         $('#submitCampaignBtn').removeClass('campaignEditButtonConfirm').addClass('submitCampaignBtn')
         formEmpty();
         loadLocalData();
 
         $('.wizard_title').text('Dormitory');
         $('.setup-content').hide();
-        $("#step-1").show();
         el_action.val('store');
         el_modal_title.text('Add');
         el_modal_btn.text('Save');
@@ -151,27 +139,7 @@
                 }
             });
         }
-
-
-    // edit campaign
-    function closeCampaign(id){
-        $("#warning_item_id").val(id);
-        $("#warning_action").val('close');
-        showWarningMessage('Are you sure you want to close this?');
-    }
-
-     // edit campaign
-     function openCampaign(id){
-         $("#warning_item_id").val(id);
-         $("#warning_action").val('open');
-         showWarningMessage('Are you sure you want to open this?');
-    }
-     // invoice campaign
-     function invoiceCampaign(id){
-         $("#warning_item_id").val(id);
-         $("#warning_action").val('invoice');
-         showWarningMessage('Are you sure you want to change invoice status?');
-    }
+ 
 
     $(document).on("click", "#warning_ok", function(){
 
@@ -240,120 +208,21 @@
     // validate signup form on keyup and submit
     el_form.validate({
         rules: {
-            school_id: {
+            name: {
                 required: true,
+                maxlength: 60
+            },
+            type: {
+                required: true,
+            },
+            address: {
+                required: false,
                 maxlength: 255
             },
-            group_id: {
-                required: true,
-                maxlength: 255
-            },
-            sponsor_user_id: {
-                required: {
-                    depends:function(){
-                        if ($('#sponsor_type').val()==='existing'){
-                            return true;
-                        }else{
-                            return false;
-                        }
-                    }
-                }
-            },
-            sale_type: {
-                required: true,
-                maxlength: 255
-            },
-            sponsor_name: {
-                required: {
-                    depends:function(){
-                        if ($('#sponsor_type').val()==='new'){
-                            return true;
-                        }else{
-                            return false;
-                        }
-                    }
-                },
-                maxlength: 255,
-                minlength: 3
-            },
-            sponsor_phone: {
-                required: {
-                    depends:function(){
-                        if ($('#sponsor_type').val()==='new'){
-                            return true;
-                        }else{
-                            return false;
-                        }
-                    }
-                },
-                maxlength: 16
-            },
-            sponsor_email: {
-                email: true,
-                required: {
-                    depends:function(){
-                        if ($('#sponsor_type').val()==='new'){
-                            return true;
-                        }else{
-                            return false;
-                        }
-                    }
-                },
-                maxlength: 255
-            },
-
-            start_date: {
-                required: true,
-                maxlength: 14
-            },
-
-            student_count: {
-                required: true,
-                min: 0
-            },
-
-            "product_id[]": {
-                required: true
-            },
-            sponsor_password: {
-                required: {
-                    depends:function(){
-                        if ($('#sponsor_type').val()==='new'){
-                            return true;
-                        }else{
-                            return false;
-                        }
-                    }
-                },
-                minlength: 6,
-                maxlength: 100
-            },
-            sponsor_user_name: {
-                required: {
-                    depends:function(){
-                        if ($('#sponsor_type').val()==='new'){
-                            return true;
-                        }else{
-                            return false;
-                        }
-                    }
-                },
-                minlength: 6,
-                maxlength: 100
-            },
-
-            credit_card_rate: {
-                required: true,
-                min: 0,
-                max: 100
-            },
-            transaction_fee: {
-                required: true,
-                min: 0,
-                max: 100
-            }
         },
         messages: {
+            name: 'name required',
+            type: 'Please select a type',
         }
     });
 
@@ -575,5 +444,7 @@
                 }
             }
     });
+
+
 </script>
 
