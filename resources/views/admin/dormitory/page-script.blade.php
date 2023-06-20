@@ -292,78 +292,7 @@
         submitCampaignFormData();
     });
 
-
-    var navListItems = $('div.setup-panel div a'),
-            allContainers = $('.setup-content'),
-            allPrevBtn = $('.prevBtn'),
-            allNextBtn = $('.nextBtn'),
-            saveCloseBtn = $('.saveCloseBtn');
-
-
     allContainers.hide();
-
-    navListItems.click(function (e) {
-        e.preventDefault();
-        var $target = $($(this).attr('href')),
-                $item = $(this),
-                $parent = $item.closest('.stepwizard-step');
-        if (!$item.hasClass('disabled')) {
-            navListItems.removeClass('btn-primary').addClass('btn-default');
-            $item.addClass('btn-primary');
-            allContainers.hide();
-            $target.show();
-            $target.find('input:eq(0)').focus();
-            let hrefValue = $item.attr('href');
-            if(hrefValue == '#step-3'){
-                $('#form_title_text').text('')
-                el_modal_wizard_title.html('Add '+$parent.find("p").text()+'<p class="mb-0 small" >This is where you set up the convenience fee to charge customers that uses a credit or debit card. Keep in mind that STRIPE charges you 2.9% + .30 per transaction.</p>');
-            }else{
-                el_modal_wizard_title.html($parent.find("p").text());
-            }
-        }
-    });
-
-    allNextBtn.click(function(){
-        var curStep = $(this).closest(".setup-content"),
-            curStepId = $(curStep).attr('id'),
-            curStepBtn = curStep.attr("id"),
-            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a");
-
-        var fields = el_form.find('#'+curStepId).find(":input", ":select");
-        if (fields.valid()) {
-            nextStepWizard.removeAttr('disabled').trigger('click');
-        }
-    });
-
-    allPrevBtn.click(function(){
-        var curStep = $(this).closest(".setup-content"),
-            curStepBtn = curStep.attr("id"),
-            prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
-
-        prevStepWizard.trigger('click');
-    });
-
-    saveCloseBtn.click(function(){
-        var curStep = $(this).closest(".setup-content"),
-            curStepId = $(curStep).attr('id'),
-            curStepBtn = curStep.attr("id"),
-            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a");
-
-        var fields = el_form.find('#'+curStepId).find(":input", ":select");
-        if (fields.valid()) {
-
-            var object = {};
-            formData = new FormData(document.getElementById("campaign-form"));
-            formData.forEach((value, key) => object[key] = value);
-
-            if(el_form.find("input[name='is_active']").is(":checked")) {
-                object.is_active = el_form.find("input[name='is_active']").is(":checked");
-            }
-            localStorage.campaign = JSON.stringify(object);
-
-            el_form_modal.modal('hide');
-        }
-    });
 
     $('div.setup-panel div.stepwizard-step:first-child a').trigger('click');
 
