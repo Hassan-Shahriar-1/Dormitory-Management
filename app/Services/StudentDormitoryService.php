@@ -2,6 +2,32 @@
 
 namespace App\Services;
 
+use App\Models\StudentDormitory;
+
 class StudentDormitoryService
 {
+    /**
+     * create and update studentDormitory
+     * @param array $studentDormitoryRequest
+     * @return object
+     */
+    public function createOrUpdateStudentDormitory(array $studentDormitoryRequest): object
+    {
+        if (isset($studentDormitoryRequest['id']) && $studentDormitoryRequest['id'] != null) {
+        } else {
+            $studentDormitory = StudentDormitory::create($studentDormitoryRequest);
+        }
+        return $studentDormitory;
+    }
+
+    /**
+     * update Student Dormitory
+     */
+    public function updateStudentDormitory(array $studentDormitoryRequest): object
+    {
+        $studentDormitory = StudentDormitory::where('id', $studentDormitoryRequest['id'])->first();
+        unset($studentDormitoryRequest['id']);
+        $studentDormitory->update($studentDormitoryRequest);
+        return $studentDormitory;
+    }
 }

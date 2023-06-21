@@ -88,7 +88,8 @@
 
 
 
-    function editDormitory(id){
+    function editDormitory(id)
+    {
         el_action.val('update');
         el_modal_title.text('Edit');
         el_modal_btn.text('Update');

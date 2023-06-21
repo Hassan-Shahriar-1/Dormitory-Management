@@ -65,7 +65,7 @@
 
                     <ul class="list-unstyled" style="">
                             <li class="{{ (request()->is('admin/dormitory')) ? 'active' : '' }}"> <a href="{{url('admin/dormitory')}}?show_modal=create">add </a> </li>
-                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">list </a> </li>
+                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="{{url('admin/dormitory')}}">list </a> </li>
                     </ul>
                 </li>
 
@@ -79,8 +79,8 @@
                     </a>
 
                     <ul class="list-unstyled" style="">
-                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">add </a> </li>
-                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">list </a> </li>
+                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="{{url('admin/dormitory')}}">add </a> </li>
+                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="{{url('admin/dormitory')}}">list </a> </li>
                     </ul>
                 </li>
 
@@ -94,8 +94,8 @@
                     </a>
 
                     <ul class="list-unstyled" style="">
-                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">add </a> </li>
-                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">list </a> </li>
+                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="{{url('admin/dormitory')}}">add </a> </li>
+                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="{{url('admin/dormitory')}}">list </a> </li>
                     </ul>
                 </li>
 
@@ -109,14 +109,12 @@
                     </a>
 
                     <ul class="list-unstyled" style="">
-                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">add </a> </li>
-                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="#">list </a> </li>
+                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="{{url('admin/dormitory')}}">add </a> </li>
+                            <li class="{{ (request()->is('admin')) ? 'active' : '' }}"> <a href="{{url('admin/dormitory')}}">list </a> </li>
                     </ul>
-                </li>
-        
+                </li>        
         </ul>
         <div class="clearfix"></div>
 
     </div><!-- /.sidebar-inner -->
 </div> <!-- /.side-menu -->
-

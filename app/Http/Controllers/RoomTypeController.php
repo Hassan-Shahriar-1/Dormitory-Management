@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\RoomType;
 use Illuminate\Http\Request;
 use App\Helpers\ResponseHelper;
+use App\Http\Requests\RoomTypeRequest;
 use App\Http\Resources\RoomTypeResource;
+use App\Services\RoomService;
+use App\Services\RoomTypeService;
 use Exception;
 use Illuminate\Http\JsonResponse;
 
@@ -21,6 +24,26 @@ class RoomTypeController extends Controller
             $showCreateModal = true;
         }
         return view('admin.room-type.room-type', compact('showCreateModal'));
+    }
+
+    /**
+     * store room type
+     * @param RoomTypeRequest $request
+     * @param RoomTypeService $roomTypeService
+     * @return JsonResponse
+     */
+    public function store(RoomTypeRequest $request, RoomService $roomService): JsonResponse
+    {
+        $requestData = $request->validated();
+        if (!isset($requestData['status'])) {
+            $requestData['status'] = 0;
+        }
+        try {
+            $roomType = $roomService->createOrUpdateRoomType($requestData);
+            return ResponseHelper::successResponse(trans('messages.create_message'), $roomType);
+        } catch (Exception $e) {
+            return ResponseHelper::errorMessage($e->getMessage());
+        }
     }
 
     /**
