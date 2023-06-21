@@ -196,14 +196,14 @@
 
     $('div.setup-panel div.stepwizard-step:first-child a').trigger('click');
 
-    var table = $('.dormitory-table').DataTable({
+    var table = $('.room-type-table').DataTable({
         processing: true,
         serverSide: true,
         order: [[1,'asc']],
         lengthMenu: [[5, 10, 20, 50, 75, 100, 200, 500, 1000, -1], [5, 10, 20, 50, 75, 100, 200, 500, 1000, 'All']],
         pageLength: 20,
         ajax: {
-            url:"{{route('dormitory.list') }}",
+            url:"{{url('admin/room/type-list-ajax') }}",
             type: "GET",
             cache: true,
         },
@@ -212,8 +212,8 @@
         columns: [
             {data: 'action', name: 'action'},  
             {data: 'name', name: 'name', orderable: true, searchable: true},           
-            {data: 'address', name:'address',searchable:true,orderable:true},
-            {data: 'type', name: 'type',orderable:true, searchable:true},
+            {data: 'description', name:'description',searchable:true,orderable:true},
+            {data: 'fee', name: 'fee',orderable:true, searchable:true},
             {data: 'status', name: 'status',orderable:true},
             {data: 'created_at', name: 'created_at',orderable:false},       
         ],

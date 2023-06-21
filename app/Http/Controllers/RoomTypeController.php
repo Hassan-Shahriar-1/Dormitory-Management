@@ -52,7 +52,7 @@ class RoomTypeController extends Controller
      * @param RoomType $roomType
      * @return JsonResponse
      */
-    public function roomTypeListAjax(Request $request, RoomType $roomType): JsonResponse
+    public function roomTypeListAjax(Request $request, RoomType $roomType)
     {
         try {
             $roomTypeList = $roomType->getRoomTypeData($request);

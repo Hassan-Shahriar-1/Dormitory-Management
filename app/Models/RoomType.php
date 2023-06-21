@@ -37,6 +37,7 @@ class RoomType extends Model
             'name',
             DB::raw('CASE WHEN status = 1 THEN "Active" ELSE "Deactive" END as status'),
             'description',
+            'fee',
             'created_at'
         ]);
 
@@ -92,9 +93,9 @@ class RoomType extends Model
     {
         foreach ($items as $key => $item) {
             $nestedData['name'] = $item->name;
-            $nestedData['description'] =  $item->type;
+            $nestedData['description'] =  $item->description;
             $nestedData['status'] = $item->status;
-            $nestedData['address'] = $item->address;
+            $nestedData['fee'] = $item->fee;
             $nestedData['created_at'] = $item->created_at;
             $nestedData['action'] = '<div class="btn-group dropup">
                                         <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

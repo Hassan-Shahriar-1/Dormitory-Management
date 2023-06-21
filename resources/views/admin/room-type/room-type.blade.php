@@ -40,7 +40,7 @@
             <div class="portlet-body">
 
                 <table
-                    class="table table-striped table-bordered table-hover dormitory-table"
+                    class="table table-striped table-bordered table-hover room-type-table"
                     data-global-search="true"
                     data-length-change="true"
                     data-info="true"
@@ -50,8 +50,8 @@
                         <tr>
                             <th data-sortable="false" class="">Action</th>
                             <th data-sortable="false" class="w-60p text-center">Name</th>
-                            <th data-sortable="false" class="mw-180p">Address</th>
-                            <th data-sortable="false" class="">Type</th>
+                            <th data-sortable="false" class="mw-180p">Description</th>
+                            <th data-sortable="false" class="">Fee</th>
                             <th data-sortable="false" class="">Status</th>
                             <th data-sortable="false" class="">created_at</th>
                             
