@@ -1,5 +1,5 @@
 <script>
-
+//show add dormitory modal part on pass param
     @if($showCreateModal)
         $(document).ready(function(){
             $('#submitCampaignBtn').removeClass('campaignEditButtonConfirm').addClass('submitCampaignBtn');
@@ -24,6 +24,7 @@
     var el_modal_wizard_title = $('#dormitory-modal .wizard_title');
     var el_modal_btn = $("#btn_text");
 
+///ajax saving dormitory data
     $(document).on("click", "#savedormitoryBtn", function(){
         var formData = new FormData($('#dormitory-form')[0]);
         formData.append('_token', '{{ csrf_token() }}');
@@ -66,7 +67,7 @@
 
 
      // delete campaign
-     function deleteCampaign(id){
+     function deleteDormitory(id){
         $("#warning_item_id").val(id);
          $("#warning_action").val('delete');
         $("#warning_modal").modal('show');
@@ -98,69 +99,40 @@
         });
 
 
-        function editCampaign(id,type){
 
-            $(".existing_sponsor_section").hide();
-            $("#sponsor_user_id").attr('disabled', true);
+    function editDormitory(id){
 
-            el_action.val('update');
-            el_modal_title.text('Edit');
-            el_modal_btn.text('Update');
-            $('#distributor_notify').hide();
-            //$('#div_sponsor_password').hide();
-            //$('#div_sponsor_user_name').hide();
-            $('#submitCampaignBtn').removeClass('submitCampaignBtn')
-            $('#submitCampaignBtn').addClass('campaignEditButtonConfirm');
-            $('#sponsor_password').rules('remove');
-            $('#sponsor_user_name').rules('remove');
-            el_form_modal.modal('show');
+        el_action.val('update');
+        el_modal_title.text('Edit');
+        el_modal_btn.text('Update');
 
-            $('.wizard_title').text('Campaign');
-            $('.setup-content').hide();
-            $("#step-1").show();
+        $.ajax({
+            url: "{{ url('admin/dormitory') }}/"+id,
+            type: "GET",
+            success: function (data) {
+                console.log(data);
+                $("#id").val(data.id);
+                $("#dormitory_name").val(data.name);
+                $("#address").val(data.address);
+                $("#is_active").val(data.status);
+                $("#dormitory_type").val(data.type);
+                el_form_modal.modal('show')
+            },
 
-            var url='';
-            switch (type){
-                case 'campaign':
-                    url='{{url('admin/campaigns')}}/'+id;
-                    break;
-                default:
-                    showErrorMessage('No Details found');
+            error: function (data) {
+                showErrorMessage('User fetch Failed.')
             }
-            $.ajax({
-                url: url,
-                type: "GET",
-                success: function (data) {
-                    loadCampaignFormData(data);
-                },
-
-                error: function (data) {
-                    showErrorMessage('Data fetch Failed.')
-                }
-            });
-        }
+        });
+    }
  
 
     $(document).on("click", "#warning_ok", function(){
 
-        var id = $("#warning_item_id").val();
-        var action = $("#warning_action").val();
-        var url = " {{route('home') }}";
-        url = url.replace(':id', id);
-        var method = 'GET';
-        var data = '';
-        if(action === 'delete') {
-            url = "{{route('home') }}";
-            method = 'DELETE';
-            data = {id:id, '_token':'{{ csrf_token() }}'};
-        } else if(action === 'invoice') {
-            url = "{{route('home') }}";
-            url = url.replace(':id', id);
-        }
+        var id = $("#warning_item_id").val();      
         $.ajax({
-            data: data,
-            url: url,
-            type: method,
+            data: {'_token':'{{ csrf_token() }}'},
+            url: "{{ url('admin/dormitory/') }}/" +id,
+            type: "DELETE",
             dataType:"json",
             success: function (data) {
                 table.draw();
@@ -292,7 +264,7 @@
         submitCampaignFormData();
     });
 
-    allContainers.hide();
+
 
     $('div.setup-panel div.stepwizard-step:first-child a').trigger('click');
 
@@ -310,13 +282,12 @@
         globalSearch: true,
 
         columns: [
-            {data: 'key', name: 'key', orderable: false, searchable: true}, 
+            {data: 'action', name: 'action'},  
             {data: 'name', name: 'name', orderable: true, searchable: true},           
             {data: 'address', name:'address',searchable:true,orderable:true},
             {data: 'type', name: 'type',orderable:true, searchable:true},
             {data: 'status', name: 'status',orderable:true},
-            {data: 'created_at', name: 'created_at',orderable:false},
-            {data: 'action', name: 'action'},        
+            {data: 'created_at', name: 'created_at',orderable:false},       
         ],
         columnDefs: [{
             target:0,

@@ -3,7 +3,7 @@
 namespace App\Helpers;
 
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Response;
 
 class ResponseHelper
 {
@@ -33,5 +33,18 @@ class ResponseHelper
             "data" => $data,
         );
         return json_encode($json_data);
+    }
+
+    /*
+     * Error Message
+     */
+    public static function errorMessage($message = null, $errors = null)
+    {
+        return new JsonResponse([
+            'key'       => "BAD_REQUEST",
+            'message'   => empty($message) ? config("message.400") : $message,
+            'errors'    => $errors,
+            'timestamp' => now()
+        ], Response::HTTP_BAD_REQUEST);
     }
 }

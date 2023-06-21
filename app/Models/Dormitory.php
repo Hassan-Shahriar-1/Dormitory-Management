@@ -96,14 +96,22 @@ class Dormitory extends Model
     public static function getDatatableData($items, $data = array())
     {
         foreach ($items as $key => $item) {
-            $nestedData['key'] = $key + 1;
-
             $nestedData['name'] = $item->name;
             $nestedData['type'] =  $item->type;
             $nestedData['status'] = $item->status;
             $nestedData['address'] = $item->address;
             $nestedData['created_at'] = $item->created_at;
-            $nestedData['action'] =  'yes';
+            $nestedData['action'] = '<div class="btn-group dropup">
+                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-h"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="javascript:editDormitory(\'' . $item->id . '\')">Edit</a></li>
+                                            <li><a href="javascript:deleteDormitory(\'' . $item->id . '\')">Delete</a></li>
+                                            <li><a href="javascript:viewDormitory(\'' . $item->id . '\')">View Details</a></li>
+                                        </ul>
+                                    </div>';
+
 
             $data[] = $nestedData;
         }

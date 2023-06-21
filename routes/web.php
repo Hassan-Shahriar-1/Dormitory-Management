@@ -27,6 +27,8 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/dormitory', [DormitoryController::class, 'index']);
-    Route::get('dormitory/list', [DormitoryController::class, 'dormitoryList'])->name('dormitory.list');
+    Route::get('dormitory/list', [DormitoryController::class, 'dormitoryListAjax'])->name('dormitory.list');
     Route::post('dormitory/store', [DormitoryController::class, 'store'])->name('dormitory.store');
+    Route::get('dormitory/{dormitory}', [DormitoryController::class, 'viewDetailsAjax'])->name('view.dormitory');
+    Route::delete('dormitory/{dormitory}', [DormitoryController::class, 'deleteDormitory'])->name('delete.dormitory');
 });

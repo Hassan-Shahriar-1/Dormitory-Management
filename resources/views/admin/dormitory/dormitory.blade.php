@@ -48,13 +48,13 @@
                 >
                     <thead>
                         <tr>
-                            <th data-sortable="false" class="w-60p text-center">SL</th>
+                            <th data-sortable="false" class="">Action</th>
                             <th data-sortable="false" class="w-60p text-center">Name</th>
                             <th data-sortable="false" class="mw-180p">Address</th>
                             <th data-sortable="false" class="">Type</th>
                             <th data-sortable="false" class="">Status</th>
                             <th data-sortable="false" class="">created_at</th>
-                            <th data-sortable="false" class="">Action</th>
+                            
                         </tr>
                     </thead>
 
