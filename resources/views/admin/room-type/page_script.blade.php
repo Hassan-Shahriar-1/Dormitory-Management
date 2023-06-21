@@ -67,7 +67,7 @@
 
 
      // delete dormitory
-     function deleteDormitory(id){
+     function deleteRoomType(id){
         $("#warning_item_id").val(id);
          $("#warning_action").val('delete');
         $("#warning_modal").modal('show');
@@ -78,8 +78,9 @@
         {
 
             $("#id").val(data.id);
-            $("#dormitory_name").val(data.name);
-            $("#address").val(data.address);
+            $("#room_type_name").val(data.name);
+            $("#description").val(data.description);
+            $("#fee").val(data.fee);
         }
 
         $(document).on("click", ".campaignEditButtonConfirm", function(){
@@ -96,10 +97,10 @@
         el_modal_btn.text('Update');
 
         $.ajax({
-            url: "{{ url('admin/dormitory') }}/"+id,
+            url: "{{ url('admin/room/room-type') }}/"+id,
             type: "GET",
             success: function (data) {
-                loadDormitoryFormData(data)
+                loadRoomTypeFormData(data.data)
                 el_form_modal.modal('show')
             },
 
@@ -115,7 +116,7 @@
         var id = $("#warning_item_id").val();      
         $.ajax({
             data: {'_token':'{{ csrf_token() }}'},
-            url: "{{ url('admin/dormitory/') }}/" +id,
+            url: "{{ url('admin/room/room-type-delete') }}/" +id,
             type: "DELETE",
             dataType:"json",
             success: function (data) {
@@ -157,30 +158,6 @@
 
     }
 
-
-
-    // validate form on keyup and submit
-    el_form.validate({
-        rules: {
-            name: {
-                required: true,
-                maxlength: 60
-            },
-            type: {
-                required: true,
-            },
-            address: {
-                required: false,
-                maxlength: 255
-            },
-        },
-        messages: {
-            name: 'name required',
-            type: 'Please select a type',
-        }
-    });
-
-    // student save action
     $(document).on("click", ".submitCampaignBtn", function(e){
         e.preventDefault();
         $("#campaign-warning").modal('show');

@@ -70,9 +70,8 @@ class RoomTypeController extends Controller
     /**
      * view room type details by id
      * @param RoomType $roomType
-     * @return JsonResponse
      */
-    public function viewDetailsAjax(RoomType $roomType): JsonResponse
+    public function viewDetailsAjax(RoomType $roomType)
     {
         try {
             return new RoomTypeResource($roomType);

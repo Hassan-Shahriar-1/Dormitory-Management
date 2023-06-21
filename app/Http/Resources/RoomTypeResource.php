@@ -18,6 +18,7 @@ class RoomTypeResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
+            'fee' => $this->fee,
             'status' => $this->status == 0 ? 'Deactive' : 'Active',
             'created_at' => $this->created_at
         ];

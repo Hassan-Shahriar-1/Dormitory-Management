@@ -39,8 +39,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('type/index', [RoomTypeController::class, 'index'])->name('room.type.home');
         Route::post('type/store', [RoomTypeController::class, 'store'])->name('room.type.store');
         Route::get('type-list-ajax', [RoomTypeController::class, 'roomTypeListAjax'])->name('room.type.list');
-        Route::get('room-type/{roomtype}', [RoomTypeController::class, 'viewDetailsAjax'])->name('view.room.type');
-        Route::delete('room-type-delete/{roomtype}', [RoomTypeController::class, 'deleteRoomType'])->name('delete.room.type');
+        Route::get('room-type/{roomType}', [RoomTypeController::class, 'viewDetailsAjax'])->name('view.room.type');
+        Route::delete('room-type-delete/{roomType}', [RoomTypeController::class, 'deleteRoomType'])->name('delete.room.type');
 
         //room routes
         Route::get('index', [RoomController::class, 'index'])->name('room.home');
