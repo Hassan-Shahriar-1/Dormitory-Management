@@ -37,7 +37,7 @@ class Room extends Model
         return $this->belongsTo(RoomType::class, 'room_type_id');
     }
 
-    public function getRoomTypeData($request)
+    public function getRoomData($request)
     {
         $query = self::join('room_types', 'rooms.room_type_id', 'room_types.id')
             ->leftJoin('dormitories', 'rooms.dormitory_id', 'dormitories.id')

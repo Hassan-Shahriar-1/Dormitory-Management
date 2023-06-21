@@ -67,7 +67,7 @@
 
 
      // delete dormitory
-     function deleteDormitory(id){
+    function deleteDormitory(id){
         $("#warning_item_id").val(id);
          $("#warning_action").val('delete');
         $("#warning_modal").modal('show');
@@ -76,7 +76,6 @@
 
         function loadDormitoryFormData(data)
         {
-
             $("#id").val(data.id);
             $("#dormitory_name").val(data.name);
             $("#address").val(data.address);
@@ -90,7 +89,6 @@
 
 
     function editDormitory(id){
-
         el_action.val('update');
         el_modal_title.text('Edit');
         el_modal_btn.text('Update');
@@ -99,7 +97,7 @@
             url: "{{ url('admin/dormitory') }}/"+id,
             type: "GET",
             success: function (data) {
-                loadDormitoryFormData(data)
+                loadDormitoryFormData(data.data)
                 el_form_modal.modal('show')
             },
 
