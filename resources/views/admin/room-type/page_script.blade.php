@@ -30,7 +30,7 @@
         formData.append('_token', '{{ csrf_token() }}');
         $.ajax({
             data: formData,
-            url: "{{ route('dormitory.store') }}",
+            url: "{{ route('room.type.store') }}",
             type: "POST",
             processData: false,
             contentType: false,

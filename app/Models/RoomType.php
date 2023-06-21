@@ -19,6 +19,7 @@ class RoomType extends Model
         'name',
         'description',
         'status',
+        'fee',
         'created_at',
         'updated_at',
         'deleted_at'

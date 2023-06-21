@@ -24,7 +24,11 @@ class RoomTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'sometimes|nullable|exists:room_types,id',
+            'name' => 'required|string|max:255',
+            'status' => 'nullable|in:0,1',
+            'fee' => 'required|numeric',
+            'description' => 'required|string|max:255'
         ];
     }
 }

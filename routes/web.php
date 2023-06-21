@@ -7,7 +7,6 @@ use App\Http\Controllers\DormitoryController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\RoomTypeController;
 use App\Http\Controllers\StudentDormitoryController;
-use App\Models\Dormitory;
 
 /*
 |--------------------------------------------------------------------------

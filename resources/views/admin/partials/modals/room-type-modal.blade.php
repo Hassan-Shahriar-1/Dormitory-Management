@@ -15,16 +15,9 @@
                     <div class="pl-10 pr-10">
                         <div class="row custom-row">
                             <div class="col-md-12">
-                                <div class="form-group col-md-6">
-                                    <label>Type</label>
-                                    <select name="type" id="dormitory_type" class="form-group">
-                                        <option value="boys">Boys</option>
-                                        <option value="girls">Girls</option>
-                                    </select>
-                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        Distributor Active?
+                                        Status
                                         <div class="material-switch pull-right">
                                             <input id="is_active" value="1" name="status" type="checkbox"/>
                                             <label for="is_active" class="label-success"></label>
@@ -35,15 +28,21 @@
                             <div class="col-md-6">
                                <div class="form-group">
                                    <label>Name <span style="color:red;">*</span></label>
-                                   <input type="text" name="name" id="dormitory_name" class="form-control">
+                                   <input type="text" name="name" id="room_type_name" class="form-control">
                                </div>
                             </div>
                              
 
                              <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Adress </label>
-                                    <input type="text" name="address" id="address" class="form-control">
+                                    <label>Description </label>
+                                    <input type="text" name="description" id="description" class="form-control">
+                                </div>
+                             </div>
+                             <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Fee </label>
+                                    <input type="text" name="fee" id="fee" class="form-control">
                                 </div>
                              </div>
                         </div>
