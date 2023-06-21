@@ -19,7 +19,7 @@ use App\Http\Controllers\StudentDormitoryController;
 |
 */
 
-Route::get('/', [AdminController::class, 'dashboard'])->name('home');
+Route::get('/', [AdminController::class, 'dashboard'])->middleware('auth')->name('home');
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
@@ -27,7 +27,7 @@ Route::post('login', [LoginController::class, 'login']);
 // Logout Route
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/dormitory', [DormitoryController::class, 'index']);
     Route::get('dormitory/list', [DormitoryController::class, 'dormitoryListAjax'])->name('dormitory.list');
     Route::post('dormitory/store', [DormitoryController::class, 'store'])->name('dormitory.store');
