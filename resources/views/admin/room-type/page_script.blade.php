@@ -1,5 +1,5 @@
 <script>
-//show add dormitory modal part on pass param
+//show add room type modal part on pass param
     @if($showCreateModal)
         $(document).ready(function(){
             $('#submitCampaignBtn').removeClass('campaignEditButtonConfirm').addClass('submitCampaignBtn');
@@ -7,14 +7,6 @@
             $("#room-type-modal").modal('show');
         });
     @endif
-
-    //need condition here
-        $(document).ready(function(){
-            $('#submitCampaignBtn').removeClass('campaignEditButtonConfirm').addClass('submitCampaignBtn');
-            $("#campaign-modal").modal('show');
-        });
-
-
 
     //form part
     var el_form = $("#room-type-form");
@@ -24,7 +16,7 @@
     var el_modal_wizard_title = $('#room-type-modal .wizard_title');
     var el_modal_btn = $("#btn_text");
 
-///ajax saving dormitory data
+///ajax saving room type data
     $(document).on("click", "#saveroomTypeBtn", function(){
         var formData = new FormData($('#room-type-form')[0]);
         formData.append('_token', '{{ csrf_token() }}');

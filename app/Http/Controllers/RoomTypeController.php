@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\RoomType;
 use Illuminate\Http\Request;
 use App\Helpers\ResponseHelper;
+use App\Http\Requests\RoomCreateRequest;
 use App\Http\Requests\RoomTypeRequest;
 use App\Http\Resources\RoomTypeResource;
 use App\Services\RoomService;
@@ -32,7 +33,7 @@ class RoomTypeController extends Controller
      * @param RoomTypeService $roomTypeService
      * @return JsonResponse
      */
-    public function store(RoomTypeRequest $request, RoomService $roomService): JsonResponse
+    public function store(RoomCreateRequest $request, RoomService $roomService): JsonResponse
     {
         $requestData = $request->validated();
         if (!isset($requestData['status'])) {

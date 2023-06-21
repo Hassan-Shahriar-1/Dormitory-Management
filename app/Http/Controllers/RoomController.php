@@ -14,7 +14,7 @@ use Illuminate\Http\JsonResponse;
 class RoomController extends Controller
 {
     /**
-     * get room type index page
+     * get room index page
      */
     public function index(Request $request)
     {
@@ -22,7 +22,7 @@ class RoomController extends Controller
         if ($request->show_modal == 'create') {
             $showCreateModal = true;
         }
-        return view('admin.room-type.room-type', compact('showCreateModal'));
+        return view('admin.room.room', compact('showCreateModal'));
     }
 
     /**
