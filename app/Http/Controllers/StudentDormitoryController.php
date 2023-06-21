@@ -10,6 +10,7 @@ use App\Http\Requests\StudentDormitoryRequest;
 use App\Services\RoomService;
 use App\Services\StudentDormitoryService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\DB;
 
 class StudentDormitoryController extends Controller
 {
@@ -37,11 +38,13 @@ class StudentDormitoryController extends Controller
         if (!isset($requestData['status'])) {
             $requestData['status'] = 0;
         }
-
+        DB::beginTransaction();
         try {
             $data = $studentDormitoryService->createOrUpdateStudentDormitory($requestData);
+            DB::commit();
             return ResponseHelper::successResponse(trans('messages.create_message'), $data);
         } catch (Exception $e) {
+            DB::rollBack();
             return ResponseHelper::errorMessage($e->getMessage());
         }
     }
