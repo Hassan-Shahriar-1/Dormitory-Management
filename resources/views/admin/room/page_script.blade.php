@@ -67,13 +67,15 @@
     }
 
 
-        function loadRoomTypeFormData(data)
+        function loadRoomFormData(data)
         {
 
             $("#id").val(data.id);
-            $("#room_type_name").val(data.name);
+            $("#number_of_beds").val(data.number_of_beds);
             $("#description").val(data.description);
-            $("#fee").val(data.fee);
+            $("#room_number").val(data.room_number);
+            $("#dormitory_id").val(data.dormitory_id);
+            $("#room_type_id").val(data.room_type_id);
         }
 
         $(document).on("click", ".campaignEditButtonConfirm", function(){
@@ -90,10 +92,10 @@
         el_modal_btn.text('Update');
 
         $.ajax({
-            url: "{{ url('admin/room/room-type') }}/"+id,
+            url: "{{ url('admin/room/room') }}/"+id,
             type: "GET",
             success: function (data) {
-                loadRoomTypeFormData(data.data)
+                loadRoomFormData(data.data)
                 el_form_modal.modal('show')
             },
 

@@ -17,9 +17,10 @@ class RoomResource extends JsonResource
         return [
             'id' => $this->id,
             'room_number' => $this->room_number,
-            'dormitory_name' => $this->dormitory->name,
-            'room_type' => $this->roomtype->name,
-            'total_beds' => $this->number_of_beds,
+            'dormitory_id' => $this->dormitory->id,
+            'room_type_id' => $this->roomtype->id,
+            'description' => $this->description,
+            'number_of_beds' => $this->number_of_beds,
             'status' => $this->status == 1 ? 'Active' : 'Deactive'
         ];
     }

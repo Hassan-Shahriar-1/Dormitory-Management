@@ -43,7 +43,7 @@ class RoomService
     public function createOrUpdateRoom(array $requestData): object
     {
         if (isset($requestData['id']) && $requestData['id'] != null) {
-            $this->updateRoom($requestData);
+            $roomType = $this->updateRoom($requestData);
         } else {
             $roomType = Room::create($requestData);
         }

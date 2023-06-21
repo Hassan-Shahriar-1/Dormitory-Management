@@ -4,7 +4,6 @@
         <form action="" id="room-form">
             <input type="hidden" value="store" id="action">
             <input type="hidden" value="" name="id" id="id">
-            <input type="hidden" value="" name="user_id" id="user_id">
             <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
