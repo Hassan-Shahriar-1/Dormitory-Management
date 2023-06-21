@@ -93,6 +93,7 @@ class Dormitory extends Model
             'totalFiltered' => $totalFiltered,
         ];
     }
+
     public static function getDatatableData($items, $data = array())
     {
         foreach ($items as $key => $item) {

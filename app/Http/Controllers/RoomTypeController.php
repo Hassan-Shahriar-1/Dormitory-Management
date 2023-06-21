@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Room;
+use App\Models\RoomType;
 use Illuminate\Http\Request;
 use App\Helpers\ResponseHelper;
-use App\Http\Resources\RoomResource;
+use App\Http\Resources\RoomTypeResource;
 use Exception;
 use Illuminate\Http\JsonResponse;
 
-class RoomController extends Controller
+class RoomTypeController extends Controller
 {
     /**
      * get room type index page
@@ -26,19 +26,19 @@ class RoomController extends Controller
     /**
      * get room type list
      * @param Request $request
-     * @param Room $room
+     * @param RoomType $roomType
      * @return JsonResponse
      */
-    public function roomListAjax(Request $request, Room $room): JsonResponse
+    public function roomTypeListAjax(Request $request, RoomType $roomType): JsonResponse
     {
         try {
-            $roomList = $room->getRoomTypeData($request);
+            $roomTypeList = $roomType->getRoomTypeData($request);
             $data = array();
 
-            if (!empty($roomList['items'])) {
-                $data = $room->getDatatableData($roomList['items']);
+            if (!empty($roomTypeList['items'])) {
+                $data = $roomType->getDatatableData($roomTypeList['items']);
             }
-            return ResponseHelper::getResponseForDatatable($request->input('draw'), $roomList['totalData'], $roomList['totalFiltered'], $data);
+            return ResponseHelper::getResponseForDatatable($request->input('draw'), $roomTypeList['totalData'], $roomTypeList['totalFiltered'], $data);
         } catch (Exception $e) {
             return ResponseHelper::errorMessage($e->getMessage());
         }
@@ -49,10 +49,10 @@ class RoomController extends Controller
      * @param RoomType $roomType
      * @return JsonResponse
      */
-    public function viewDetailsAjax(Room $room): JsonResponse
+    public function viewDetailsAjax(RoomType $roomType): JsonResponse
     {
         try {
-            return new RoomResource($room);
+            return new RoomTypeResource($roomType);
         } catch (Exception $e) {
             return ResponseHelper::errorMessage($e->getMessage());
         }
@@ -63,10 +63,10 @@ class RoomController extends Controller
      * @param RoomType $roomType
      * @return JsonResponse
      */
-    public function deleteRoom(Room $room): JsonResponse
+    public function deleteRoomType(RoomType $roomType): JsonResponse
     {
         try {
-            $room->delete();
+            $roomType->delete();
             return ResponseHelper::successResponse(trans('messages.delete_message'));
         } catch (Exception $e) {
             return ResponseHelper::errorMessage($e->getMessage());

@@ -1,7 +1,7 @@
 {{-- modal codes --}}
-<div id="dormitory-modal" class="modal fade">
+<div id="room-type-modal" class="modal fade">
     <div class="modal-dialog modal-md">
-        <form action="" id="dormitory-form">
+        <form action="" id="room-type-form">
             <input type="hidden" value="store" id="action">
             <div class="modal-content">
                 <div class="modal-header">
@@ -52,7 +52,7 @@
         
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="savedormitoryBtn"><span id="btn_text">Save</span></button>
+                  <button type="button" class="btn btn-primary" id="saveroomTypeBtn"><span id="btn_text">Save</span></button>
                 </div> 
               </div>
         </form>

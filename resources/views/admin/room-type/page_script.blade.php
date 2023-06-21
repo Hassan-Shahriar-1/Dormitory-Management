@@ -4,7 +4,7 @@
         $(document).ready(function(){
             $('#submitCampaignBtn').removeClass('campaignEditButtonConfirm').addClass('submitCampaignBtn');
 
-            $("#dormitory-modal").modal('show');
+            $("#room-type-modal").modal('show');
         });
     @endif
 
@@ -17,16 +17,16 @@
 
 
     //form part
-    var el_form = $("#dormitory-form");
+    var el_form = $("#room-type-form");
     var el_action = $("#action");
-    var el_form_modal = $("#dormitory-modal");
+    var el_form_modal = $("#room-type-modal");
     var el_modal_title = $("#form_title_text");
-    var el_modal_wizard_title = $('#dormitory-modal .wizard_title');
+    var el_modal_wizard_title = $('#room-type-modal .wizard_title');
     var el_modal_btn = $("#btn_text");
 
 ///ajax saving dormitory data
-    $(document).on("click", "#savedormitoryBtn", function(){
-        var formData = new FormData($('#dormitory-form')[0]);
+    $(document).on("click", "#saveroomTypeBtn", function(){
+        var formData = new FormData($('#room-type-form')[0]);
         formData.append('_token', '{{ csrf_token() }}');
         $.ajax({
             data: formData,
@@ -74,7 +74,7 @@
     }
 
 
-        function loadDormitoryFormData(data)
+        function loadRoomTypeFormData(data)
         {
 
             $("#id").val(data.id);
@@ -89,7 +89,7 @@
 
 
 
-    function editDormitory(id){
+    function editRoomType(id){
 
         el_action.val('update');
         el_modal_title.text('Edit');
