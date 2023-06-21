@@ -41,15 +41,16 @@ class Room extends Model
     {
         $query = self::join('room_types', 'rooms.room_type_id', 'room_types.id')
             ->leftJoin('dormitories', 'rooms.dormitory_id', 'dormitories.id')
-            ->select(DB::raw('
-                rooms.id as id,
-                rooms.room_number as room_number,
-                rooms.number_of_beds as number_of_beds,
-                rooms.description as description,
-                rooms.created_at as created_at,
-                room_types.name as room_type_name,
-                dormitories.name as dormitory_name
-            '));
+            ->select([
+                'rooms.id as id',
+                'rooms.room_number as room_number',
+                'rooms.number_of_beds as number_of_beds',
+                'rooms.description as description',
+                'rooms.created_at as created_at',
+                'room_types.name as room_type_name',
+                DB::raw('CASE WHEN rooms.status = 1 THEN "Active" ELSE "Deactive" END as status'),
+                'dormitories.name as dormitory_name'
+            ]);
 
         $limit = $request->input('length');
         $start = $request->input('start');
@@ -63,16 +64,13 @@ class Room extends Model
 
             $query->where(function ($query) use ($columns, $keyword) {
                 foreach ($columns as $column) {
+
                     if ($column != 'status' && $column != 'id') {
                         $query->orWhere('rooms.' . $column, 'LIKE', $keyword);
                     }
-                    if ($column == 'room_type_name') {
-                        $query->orwhere('room_types.name', 'LIKE', $keyword);
-                    }
-                    if ($column == 'dormitory_name') {
-                        $query->orwhere('dormitories.name', 'LIKE', $keyword);
-                    }
                 }
+                $query->orwhere('dormitories.name', 'LIKE', $keyword);
+                $query->orwhere('room_types.name', 'LIKE', $keyword);
             });
         }
 
@@ -80,12 +78,19 @@ class Room extends Model
 
         if ($request->input('order')) {
             foreach ($request->input('order') as $key => $orders) {
-
-                $order = $request->input('columns.' . $orders['column'] . '.data');
+                $columnName = $request->input('columns.' . $orders['column'] . '.data');
+                if ($columnName == 'room_type_name') {
+                    $order = 'room_types.name';
+                } elseif ($columnName == 'dormitory_name') {
+                    $order = 'dormitories.name';
+                } else {
+                    //$order = $request->input('columns.' . $orders['column'] . '.data');
+                    $order = 'rooms.' . $columnName;
+                }
                 $dir = $orders['dir'];
             }
         } else {
-            $order = 'rooms.name';
+            $order = 'rooms.room_number';
             $dir = 'asc';
         }
         $query->orderBy($order, $dir);
@@ -108,8 +113,8 @@ class Room extends Model
     public static function getDatatableData($items, $data = array())
     {
         foreach ($items as $key => $item) {
-            $nestedData['name'] = $item->name;
             $nestedData['room_number'] = $item->room_number;
+            $nestedData['number_of_beds'] = $item->number_of_beds;
             $nestedData['description'] =  $item->description;
             $nestedData['status'] = $item->status;
             $nestedData['room_type_name'] = $item->room_type_name;

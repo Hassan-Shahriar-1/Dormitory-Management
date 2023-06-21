@@ -53,10 +53,10 @@ class RoomController extends Controller
      * @param Room $room
      * @return JsonResponse
      */
-    public function roomListAjax(Request $request, Room $room): JsonResponse
+    public function roomListAjax(Request $request, Room $room)
     {
         try {
-            $roomList = $room->getRoomTypeData($request);
+            $roomList = $room->getRoomData($request);
             $data = array();
 
             if (!empty($roomList['items'])) {
