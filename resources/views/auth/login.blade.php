@@ -7,7 +7,7 @@
         <form class="form account-form" method="POST" action="{{url('login')}}">
             @csrf
 
-            @error('user_name')
+            @error('email')
             <span class="invalid-feedback" style="color:red;" role="alert">
               <strong>{{ $message }}</strong>
            </span>
