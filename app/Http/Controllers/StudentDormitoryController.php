@@ -53,12 +53,11 @@ class StudentDormitoryController extends Controller
      * get room type list
      * @param Request $request
      * @param RoomType $roomType
-     * @return JsonResponse
      */
-    public function roomTypeListAjax(Request $request, StudentDormitory $studentDormitory): JsonResponse
+    public function studentDormitoryListAjax(Request $request, StudentDormitory $studentDormitory)
     {
         try {
-            $studentDormitoryList = $studentDormitory->getRoomTypeData($request);
+            $studentDormitoryList = $studentDormitory->getStudentDormitoryData($request);
             $data = array();
 
             if (!empty($studentDormitoryList['items'])) {

@@ -41,18 +41,19 @@ class StudentDormitory extends Model
 
     public function getStudentDormitoryData($request)
     {
-        $query = self::join('rooms', 'student_dormitories.room_id', 'room_types.id')
-            ->leftJoin('dormitories', 'student_dormitories.dormitory_id', 'dormitories.id')
-            ->leftJoin('room_types', 'rooms.room_type_id', 'room_types.id')
-            ->join('studensts', 'student_dormitories.student_id', 'studensts.id')
+        $query = self::join('rooms', 'student_dormitories.room_id', 'rooms.id')
+            ->leftJoin('dormitories', 'rooms.dormitory_id', 'dormitories.id')
+            ->join('room_types', 'rooms.room_type_id', 'room_types.id')
+            ->join('students', 'student_dormitories.student_id', 'students.id')
             ->select(DB::raw('
                 student_dormitories.id as id,
                 student_dormitories.status as status,
-                studensts.first_name as student_first_name,
-                studensts.last_name as student_last_name,
+                students.first_name as first_name,
+                students.last_name as last_name,
+                students.address as address,
+                room_types.name as room_type_name,
                 rooms.room_number as room_number,
                 rooms.description as description,
-                room_types.name as room_type_name,
                 dormitories.name as dormitory_name,
                 student_dormitories.created_at as created_at
             '));
@@ -91,7 +92,7 @@ class StudentDormitory extends Model
                 $dir = $orders['dir'];
             }
         } else {
-            $order = 'rooms.name';
+            $order = 'rooms.room_number';
             $dir = 'asc';
         }
         $query->orderBy($order, $dir);
@@ -114,9 +115,9 @@ class StudentDormitory extends Model
     public static function getDatatableData($items, $data = array())
     {
         foreach ($items as $key => $item) {
-            $nestedData['name'] = $item->name;
+            $nestedData['name'] = $item->first_name . ' ' . $item->last_name;
             $nestedData['room_number'] = $item->room_number;
-            $nestedData['description'] =  $item->description;
+            $nestedData['address'] =  $item->address;
             $nestedData['status'] = $item->status;
             $nestedData['room_type_name'] = $item->room_type_name;
             $nestedData['dormitory_name'] = $item->dormitory_name;
@@ -126,9 +127,9 @@ class StudentDormitory extends Model
                                             <i class="fa fa-ellipsis-h"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-right">
-                                            <li><a href="javascript:editRoom(\'' . $item->id . '\')">Edit</a></li>
-                                            <li><a href="javascript:deleteRoom(\'' . $item->id . '\')">Delete</a></li>
-                                            <li><a href="javascript:viewRoom(\'' . $item->id . '\')">View Details</a></li>
+                                            <li><a href="javascript:editStudentDormitory(\'' . $item->id . '\')">Edit</a></li>
+                                            <li><a href="javascript:deleteStudentDormitory(\'' . $item->id . '\')">Delete</a></li>
+                                            <li><a href="javascript:viewStudentDormitory(\'' . $item->id . '\')">View Details</a></li>
                                         </ul>
                                     </div>';
 
