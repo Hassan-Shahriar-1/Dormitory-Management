@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Exception;
 use App\Helpers\ResponseHelper;
 use App\Http\Requests\StudentDormitoryRequest;
+use App\Http\Resources\StudentDormitoryResource;
 use App\Services\RoomService;
 use App\Services\StudentDormitoryService;
 use Illuminate\Http\JsonResponse;
@@ -70,14 +71,13 @@ class StudentDormitoryController extends Controller
     }
 
     /**
-     * view room type details by id
-     * @param RoomType $roomType
-     * @return JsonResponse
+     * view student dormitoty details details by id
+     * @param StudentDormitory $studentDormitory
      */
-    public function viewDetailsAjax(StudentDormitory $studentDormitory): JsonResponse
+    public function viewStudentDormitoryAjax(StudentDormitory $studentDormitory)
     {
         try {
-            return $studentDormitory;
+            return new StudentDormitoryResource($studentDormitory);
         } catch (Exception $e) {
             return ResponseHelper::errorMessage($e->getMessage());
         }

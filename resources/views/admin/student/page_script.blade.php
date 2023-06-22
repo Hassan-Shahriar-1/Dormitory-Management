@@ -66,12 +66,12 @@
     }
 
 
-        function loadRoomTypeFormData(data)
+        function loadStudentDormioryData(data)
         {
             $("#id").val(data.id);
-            $("#student_address").val(data.student.address);
-            $("#first_name").val(data.student.first_name);
-            $("#last_name").val(data.student.last_name);
+            $("#student_address").val(data.address);
+            $("#first_name").val(data.first_name);
+            $("#last_name").val(data.last_name);
             $('#room_id').val(data.room_id)
         }
 
@@ -89,10 +89,10 @@
         el_modal_btn.text('Update');
 
         $.ajax({
-            url: "{{ url('admin/room/room-type') }}/"+id,
+            url: "{{ url('admin/student/student-dormitory') }}/"+id,
             type: "GET",
             success: function (data) {
-                loadRoomTypeFormData(data.data)
+                loadStudentDormioryData(data.data)
                 el_form_modal.modal('show')
             },
 

@@ -34,10 +34,6 @@ class StudentDormitory extends Model
         return $this->belongsTo(Student::class, 'student_id');
     }
 
-    public function dormitory()
-    {
-        return $this->belongsTo(Dormitory::class, 'dormitory_id');
-    }
 
     public function getStudentDormitoryData($request)
     {
