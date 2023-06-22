@@ -59,7 +59,7 @@
 
 
      // delete dormitory
-     function deleteRoomType(id){
+     function deleteStudentDormitory(id){
         $("#warning_item_id").val(id);
          $("#warning_action").val('delete');
         $("#warning_modal").modal('show');
@@ -82,7 +82,7 @@
 
 
 
-    function editRoomType(id){
+    function editStudentDormitory(id){
 
         el_action.val('update');
         el_modal_title.text('Edit');
@@ -108,7 +108,7 @@
         var id = $("#warning_item_id").val();      
         $.ajax({
             data: {'_token':'{{ csrf_token() }}'},
-            url: "{{ url('admin/room/room-type-delete') }}/" +id,
+            url: "{{ url('admin/student/dormitory/delete') }}/" +id,
             type: "DELETE",
             dataType:"json",
             success: function (data) {

@@ -54,7 +54,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::get('dormitory', [StudentDormitoryController::class, 'index'])->name('student.dormitory.home');
         Route::post('dormitory-store', [StudentDormitoryController::class, 'store'])->name('student.dormitory.store');
         Route::get('student-dormitory-list-ajax', [StudentDormitoryController::class, 'studentDormitoryListAjax'])->name('student.dormitory.list');
-        Route::get('student-dormitory/{studentdormitory}', [StudentDormitoryController::class, 'viewStudentDormitoryAjax'])->name('student.dormitory.view');
-        Route::delete('dormitory/delete/{studentdormitory}', [StudentDormitoryController::class, 'deleteStudentDormitory'])->name('student.dormitory.delete');
+        Route::get('student-dormitory/{studentDormitory}', [StudentDormitoryController::class, 'viewStudentDormitoryAjax'])->name('student.dormitory.view');
+        Route::delete('dormitory/delete/{studentDormitory}', [StudentDormitoryController::class, 'deleteStudentDormitory'])->name('student.dormitory.delete');
     });
 });
