@@ -71,5 +71,54 @@
               </div>
         </form>
     </div>
-  </div>
+</div>
 {{-- end modal codes --}}
+
+<div id="student-dormitory-view" class="modal fade">
+    <div class="modal-dialog modal-md">
+         <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                  <h5 class="modal-title"> Student Dormitory Details</h5>
+                </div>
+
+            <div class="modal-body table">
+                <table class="table table-bordered vertical-table">
+
+                    <tr class="">
+                        <th>Student Name</th>
+                        <td id="student_view_name"></td>
+                    </tr>
+
+                    <tr class="">
+                        <th>Dormitory Name</th>
+                        <td id="student_view_dormitory_name"></td>
+                    </tr>
+                    <tr class="">
+                        <th>Dormitory Type</th>
+                        <td id="student_view_dormitory_type"></td>
+                    </tr>
+
+                    <tr class="">
+                        <th>Room Number</th>
+                        <td id="student_view_room_number"></td>
+                    </tr>
+                    <tr class="">
+                        <th>Room Type</th>
+                        <td id="student_view_room_type"></td>
+                    </tr>
+
+                    <tr class="">
+                        <th>Student Address</th>
+                        <td id="student_view_student_address"></td>
+                    </tr>
+                
+                </table>
+            </div>
+            <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+    </div>
+</div>
+
+
+

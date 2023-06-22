@@ -80,8 +80,32 @@
             submitCampaignFormData();
         });
 
+function viewStudentDormitory(id){
+    $.ajax({
+            url: "{{ url('admin/student/student-dormitory') }}/"+id,
+            type: "GET",
+            success: function (data) {
+                loadStudenViewData(data.data)
+                $('#student-dormitory-view').modal('show')
+            },
+
+            error: function (data) {
+                showErrorMessage('Data fetch Failed.')
+            }
+        });
+    
+}
+function loadStudenViewData(data){
+    $('#student_view_name').text(data.first_name + ' ' +data.last_name)
+    $('#student_view_dormitory_name').text(data.dormitory_name)
+    $('#student_view_student_address').text(data.address)
+    $('#student_view_dormitory_type').text(data.dormitory_type)
+    $('#student_view_room_number').text(data.room_number)
+    $('#student_view_room_type').text(data.room_type)
+    
 
 
+}
     function editStudentDormitory(id){
 
         el_action.val('update');

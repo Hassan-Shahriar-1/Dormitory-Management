@@ -22,7 +22,8 @@ class StudentDormitoryResource extends JsonResource
             'room_number' => $this->room->room_number,
             'room_type' => $this->room->roomType->name,
             'room_id' => $this->room->id,
-            'dormitory_name' => $this->room->dormitory->name
+            'dormitory_name' => $this->room->dormitory->name,
+            'dormitory_type' => $this->room->dormitory->type
         ];
     }
 }
