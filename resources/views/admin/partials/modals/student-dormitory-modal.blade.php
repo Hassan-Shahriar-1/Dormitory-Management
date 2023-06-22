@@ -52,8 +52,8 @@
                                         <label>Select Room<span style="color:red;">*</span></label>
                                         <select name="room_id" id="room_id" class="form-control">
 
-                                            @foreach($rooms as $room)
-                                            <option value="{{$room->id}}">{{$room->name}}</option>
+                                            @foreach($roomList as $room)
+                                            <option value="{{$room->id}}">{{$room->room_number}}</option>
                                             @endforeach
                                         </select>
                                     </div>

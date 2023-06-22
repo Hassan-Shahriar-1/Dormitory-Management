@@ -13,7 +13,7 @@ class StudentDormitoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class StudentDormitoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'sometimes|nullable|exists:student_dormitories,id',
+            'first_name' => 'required|string|max:20',
+            'last_name' => 'required|string|max:20',
+            'address' => 'required|string|max:60',
+            'room_id' => 'required|uuid|exists:rooms,id',
+            'status' => 'sometimes|nullable|in:0,1'
         ];
     }
 }

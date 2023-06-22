@@ -22,7 +22,7 @@
         formData.append('_token', '{{ csrf_token() }}');
         $.ajax({
             data: formData,
-            url: "{{ route('room.type.store') }}",
+            url: "{{ route('student.dormitory.store') }}",
             type: "POST",
             processData: false,
             contentType: false,
@@ -68,7 +68,6 @@
 
         function loadRoomTypeFormData(data)
         {
-
             $("#id").val(data.id);
             $("#student_address").val(data.student.address);
             $("#first_name").val(data.student.first_name);
@@ -193,7 +192,6 @@
         }],
         dom: 'lBfrtip',
     });
-
 
 </script>
 

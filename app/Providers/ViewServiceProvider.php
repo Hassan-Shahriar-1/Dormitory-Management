@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\ViewComposers\RoomComposer;
+use App\ViewComposers\StudentDormitoryComposer;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -24,7 +25,6 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('admin.partials.modals.room-modal', RoomComposer::class);
-        //View::composer('admin.partials.modals.student-dormitory-modal', RoomComposer::class);
-        //View::composer('student.home', StudentCampaignComposer::class);
+        View::composer('admin.partials.modals.student-dormitory-modal', StudentDormitoryComposer::class);
     }
 }
